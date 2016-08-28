@@ -1,18 +1,21 @@
 //if we call by a name like React we import the entire library/object
 import React, { Component } from 'react';
-//it is a function that forces React to connect with Redux. We are pulling a single property of the library
+/*
+Tt is a function that forces React to connect with Redux. 
+We are pulling a single property of the library
+Is like the glue. 
+*/
 import { connect } from 'react-redux';
 //Smart Component because it connects directly to State
-class BookList extends Compoent {
+class BookList extends Component {
 	renderList() {
-		return this.props.books.map(book) => {
+		return this.props.books.map((book) => {
 			return (
 				<li key={book.title} className="list-group-item">{book.title}</li>
-			)
-		}
+			);
+		});
 	}
 	render() {
-		// console.log(this.props.asdf); //1 2 3
 		return (
 			<ul className="list-group col-sm-4">
 				{this.renderList()}
@@ -23,10 +26,16 @@ class BookList extends Compoent {
 /* 
 mapStateToProps
 Takes our application state into a whatever gets 
-return from the props
+return from the props. Returns an Object . The new State
+It is available to our this.props
 */
 function mapStateToProps(state){
 	return {
-		// asdf : '123'
-	}
+		//if it renders (application state) 
+		//this will automatically re-render
+		books : state.books
+	};
 }
+
+//Making use of the Connect Function : takes the components states.props and return a container.
+export default connect(mapStateToProps)(BookList);
