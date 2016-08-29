@@ -17,7 +17,22 @@ var hotColdReducer = function(state, action) {
 				guessNumber: action.guessNumber
 		});
 
+	} else if(action.type === actions.getFeedback) {
+
+		return Object.assign({}, state, {
+			feedback: action.feedback
+		});
+
+
+
+
 	}
+
+
+
+
+
+
 
 	return state;
 };

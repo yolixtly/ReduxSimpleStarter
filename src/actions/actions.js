@@ -31,11 +31,24 @@ var fetchUserGuess = function(guessNumber){
 };
 
 // Get Feedback action
-var getFeedback = function(guessNumber, secretNumber, feedback){
+var getFeedback = function(guessNumber, secretNumber){
+	var gapNumber = Math.abs(secretNumber - guessNumber);
+	var feedback = '';
+	if (secretNumber == guessNumber) {
+            feedback = "you win!";
+        } else if (gapNumber <= 10 && gapNumber >= 1) {
+            feedback = 'you are very hot';
+        } else if (gapNumber <= 20 && gapNumber >= 11) {
+            feedback = 'you are hot';
+        } else if (gapNumber <= 30 && gapNumber >= 21) {
+            feedback = 'you are warm';
+        } else if (gapNumber <= 49 && gapNumber >= 39) {
+            feedback = 'you are cold';
+        } else {
+            feedback = 'you are very cold';
+        }
 	return {
 		type: GET_FEEDBACK,
-		userGuess: guessNumber,
-		secretNumber: secretNumber,
 		feedback: feedback
 	}
 
