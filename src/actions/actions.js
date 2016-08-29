@@ -13,6 +13,7 @@ Actions to be perfomed during the game :
 
 var createSecretNumber = function(secretNumber){
 	return {
+		// console.log('is working!');
 		type: CREATE_SECRET_NUMBER,
 		number: secretNumber
 	}
@@ -57,9 +58,9 @@ var guessesHistory = function(newGuess){
 	}
 };
 
-//Start a newGame 
+//Start a newGame  ???
 
-var startNewGame = function(count, pastGuesses, ){
+var startNewGame = function(count, pastGuesses){
 	return {
 		type: 'RESET_APP',
 		guessCount: count,
@@ -68,18 +69,18 @@ var startNewGame = function(count, pastGuesses, ){
 	}
 };
 
-export.CREATE_SECRET_NUMBER = CREATE_SECRET_NUMBER;
-export.createSecretNumber = createSecretNumber;
-export.FETCH_USER_NUMBER = FETCH_USER_NUMBER;
-export.fetchUserGuess = fetchUserGuess;
-export.GET_FEEDBACK = GET_FEEDBACK;
-export.getFeedback = getFeedback;
-export.TRACK_PASS_GUESSES = TRACK_PASS_GUESSES;
-export.trackPastGuesses = trackPastGuesses;
-export.RENDER_GUESS_LIST = RENDER_GUESS_LIST;
-export.guessesHistory = guessesHistory;
-export.RESET_APP = RESET_APP;
-export.startNewGame = startNewGame;
+exports.CREATE_SECRET_NUMBER = CREATE_SECRET_NUMBER;
+exports.createSecretNumber = createSecretNumber;
+exports.FETCH_USER_NUMBER = FETCH_USER_NUMBER;
+exports.fetchUserGuess = fetchUserGuess;
+exports.GET_FEEDBACK = GET_FEEDBACK;
+exports.getFeedback = getFeedback;
+exports.TRACK_PASS_GUESSES = TRACK_PASS_GUESSES;
+exports.trackPastGuesses = trackPastGuesses;
+exports.RENDER_GUESS_LIST = RENDER_GUESS_LIST;
+exports.guessesHistory = guessesHistory;
+exports.RESET_APP = RESET_APP;
+exports.startNewGame = startNewGame;
 
 
 
