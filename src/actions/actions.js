@@ -11,21 +11,22 @@ Actions to be perfomed during the game :
 
 // Generate a secret number
 
-var createSecretNumber = function(secretNumber){
+var createSecretNumber = function(){
+var randomNumber = Math.floor((Math.random() * 100) + 1);
 	return {
 		// console.log('is working!');
 		type: CREATE_SECRET_NUMBER,
-		number: secretNumber
+		number: randomNumber
+
 	}
 };
 
 // On Guess/onClick: Compare the guess vs the secret number
 
-var fetchUserGuess = function(guessNumber, secretNumber){
+var fetchUserGuess = function(guessNumber){
 	return {
 		type: FETCH_USER_NUMBER,
-		userGuess: guessNumber,
-		secretNumber: secretNumber
+		userGuess: guessNumber
 	}
 };
 

@@ -1,21 +1,23 @@
 var actions = require('../actions/actions.js');
 
-var initialhotColdGame = [
-	"Somethin" //5
-];
+var initialhotColdGame = [];
 
 var hotColdReducer = function(state, action) {
 	state = state || initialhotColdGame;
 	if(action.type === actions.CREATE_SECRET_NUMBER) {
+		//creates multiple instances rather than update it
+		// return state.concat({
+		// 	secretNumber: action.number
+		// });
+		return Object.assign({}, state, {
+			number: action.number
+		});	
+	} else if(action.type === actions.fetchUserGuess){
 		return state.concat({
-			number: action.CREATE_SECRET_NUMBER
+				guessNumber: action.guessNumber
 		});
 
-		// return Object.assign({}, state, {
-		// 	number: action.number
-		// });
-		
-	} 
+	}
 
 	return state;
 };
